@@ -68,19 +68,20 @@ button {
 }
 
 .binary-rain {
-  z-index: 0;
+  z-index: 2;
   overflow: hidden;
-  opacity: 0.11;
+  opacity: 0.16;
+  mix-blend-mode: screen;
   mask-image:
-    linear-gradient(90deg, transparent 0%, black 7%, black 93%, transparent 100%),
-    linear-gradient(180deg, black 0%, black 48%, transparent 82%);
+    linear-gradient(90deg, transparent 0%, black 9%, black 91%, transparent 100%),
+    linear-gradient(180deg, black 0%, black 58%, transparent 88%);
 }
 
 .binary-rain span {
   position: absolute;
   top: -35rem;
   writing-mode: vertical-rl;
-  color: rgba(242, 139, 46, 0.58);
+  color: rgba(242, 139, 46, 0.64);
   font-family: "Courier New", monospace;
   line-height: 1.8;
   letter-spacing: 0.22rem;
