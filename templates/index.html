@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kühnel Systems bietet professionelle IT-Services für Unternehmen, Vereine und Selbstständige: Infrastruktur, Cloud, Server, Security, Microsoft 365, Netzwerk und Automatisierung.">
+  <meta name="theme-color" content="#070b14">
+  <meta property="og:title" content="Kühnel Systems - Zukunftssichere IT-Infrastruktur">
+  <meta property="og:description" content="Moderne IT-Services für Server, Netzwerk, Cloud, Security und Automatisierung.">
+  <meta property="og:type" content="website">
+  <title>Kühnel Systems - Zukunftssichere IT-Infrastruktur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body>
+  <canvas class="network-canvas" id="network-canvas" aria-hidden="true"></canvas>
+  <div class="hero-grid-overlay" aria-hidden="true"></div>
+  <div class="binary-rain" data-columns="200" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="#top" aria-label="Kühnel Systems Startseite">
+        <span class="brand-mark">
+          <img src="static/images/ks_logo_orange.png" alt="" width="44" height="38">
+        </span>
+        <span class="brand-copy">
+          <strong>Kühnel Systems</strong>
+          <small>IT Infrastructure / Cloud / Security</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Navigation öffnen">
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav">
+        <a href="#ueber-uns">Über uns</a>
+        <a href="#leistungen">Leistungen</a>
+        <a href="#vertrauen">Vertrauen</a>
+        <a href="#stack">Stack</a>
+        <a href="#projekt">Projekt</a>
+        <a href="#footer">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero-section">
+      <div class="container hero-layout">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Infrastructure / Cloud / Cybersecurity</p>
+          <h1>Zukunftssichere IT-Infrastruktur</h1>
+          <p class="hero-text">
+            Echtzeit-Sicherheit & skalierbare Plattformen für Unternehmen, Selbstständige und Vereine. Kühnel Systems verbindet Server, Netzwerk, Cloud und Automatisierung zu einer stabilen IT-Basis.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projekt">Kostenlose Erstberatung</a>
+            <a class="button button-secondary" href="#leistungen">Leistungen entdecken</a>
+          </div>
+
+          <div class="hero-proof">
+            <article>
+              <span>Platform Focus</span>
+              <strong>Server, Cloud und Security aus einer Hand</strong>
+            </article>
+            <article>
+              <span>Operations Ready</span>
+              <strong>Dokumentiert, wartbar und skalierbar</strong>
+            </article>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" data-tilt>
+          <div class="orbit-visual" aria-label="Interaktive Live-Architecture-Grafik">
+            <div class="orbit-header">
+              <span>Live Architecture</span>
+              <strong>KS Core</strong>
+            </div>
+            <div class="orbit-stage" aria-hidden="true">
+              <div class="orbit-ring orbit-ring-a"></div>
+              <div class="orbit-ring orbit-ring-b"></div>
+              <div class="orbit-ring orbit-ring-c"></div>
+              <div class="orbit-core">
+                <img src="static/images/ks_logo_orange.png" alt="Kühnel Systems Logo" width="92" height="79">
+              </div>
+              <div class="tech-orbit tech-orbit-a" aria-hidden="true">
+                <span class="tech-node" style="--angle: 8deg;" data-title="Docker" data-detail="Container, Deployments und reproduzierbare Webhosting-Stacks."><img src="static/images/421-4211389_check-official-docker-logo.jpg" alt="Docker" loading="lazy"></span>
+                <span class="tech-node" style="--angle: 98deg;" data-title="Python" data-detail="Automatisierung, Schnittstellen und kleine Tools für wiederkehrende IT-Prozesse."><img src="static/images/hd-python-logo-symbol-transparent-png-735811696257415dbkifcuokn.png" alt="Python" loading="lazy"></span>
+                <span class="tech-node" style="--angle: 188deg;" data-title="Proxmox" data-detail="Virtualisierung, Cluster-Betrieb und flexible Server-Plattformen."><img src="static/images/orange-logo-proxmox-virtual-environment-ceph-virtual-private-network-central-processing-unit-orange-sa-text-png-clipart-thumbnail.jpg" alt="Proxmox" loading="lazy"></span>
+                <span class="tech-node" style="--angle: 278deg;" data-title="Nginx" data-detail="Reverse Proxy, TLS-Termination und performantes Webserving."><img src="static/images/tshirt-text-logo-line-unisex-angle-nginx-symbol-png-clipart.jpg" alt="Nginx" loading="lazy"></span>
+              </div>
+              <div class="tech-orbit tech-orbit-b" aria-hidden="true">
+                <span class="tech-node" style="--angle: 24deg;" data-title="Grafana" data-detail="Dashboards für Monitoring, Metriken und schnelle Betriebsübersicht."><img src="static/images/450-4503037_grafana-prometheus-grafana-logo.jpg" alt="Grafana" loading="lazy"></span>
+                <span class="tech-node" style="--angle: 114deg;" data-title="pfSense" data-detail="Firewall, VPN, VLAN-Routing und sichere Netzwerksegmentierung."><img src="static/images/fsense-set-static-ip-for-a-specific-openvpn-client-firewall-pfsense-11563035057saouyckles.png" alt="pfSense" loading="lazy"></span>
+                <span class="tech-node" style="--angle: 204deg;" data-title="PowerShell" data-detail="Windows-Automation, Microsoft 365 Verwaltung und Admin-Skripte."><img src="static/images/powershell-microsoft-corporation-installation-net-framework-windows-server-meetup-logo.jpg" alt="PowerShell" loading="lazy"></span>
+                <span class="tech-node" style="--angle: 294deg;" data-title="Linux" data-detail="Stabile Serverbasis für Dienste, Automatisierung und Infrastruktur."><img src="static/images/images.png" alt="Linux" loading="lazy"></span>
+              </div>
+              <div class="tech-orbit tech-orbit-c" aria-hidden="true">
+                <span class="tech-node" style="--angle: 40deg;" data-title="Windows Server" data-detail="Domain Services, Rollenverwaltung und klassische Unternehmens-IT."><img src="static/images/avdf92lpk.webp" alt="Windows Server" loading="lazy"></span>
+                <span class="tech-node" style="--angle: 160deg;" data-title="Ansible" data-detail="Konfigurationsmanagement und wiederholbare Server-Deployments."><img src="static/images/kisspng-logo-brand-product-design-ansible-font-all-city-cloud-nodes-now-run-openstack-mitaka-ci-5baeb50ccee361.0345824515381762688474.webp" alt="Ansible" loading="lazy"></span>
+                <span class="tech-node" style="--angle: 280deg;" data-title="SQL Server" data-detail="Datenbanken, Backups und zuverlässige Datenplattformen."><img src="static/images/sql-server-logo-mysql-database-microsoft-sql-server-php-text-line-company-png-clipart.jpg" alt="SQL Server" loading="lazy"></span>
+              </div>
+              <div class="orbit-probe" aria-hidden="true">
+                <span class="probe-ship">
+                  <span class="probe-window"></span>
+                  <span class="probe-flare"></span>
+                </span>
+                <span class="probe-beam"></span>
+              </div>
+            </div>
+            <div class="orbit-metrics">
+              <article class="scan-info">
+                <div>
+                  <span id="scan-label">Passive Scan</span>
+                  <strong id="scan-title">pfSense Firewall</strong>
+                  <small id="scan-detail">Firewall, VPN, VLAN-Routing und sichere Netzwerksegmentierung.</small>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section" id="ueber-uns">
+      <div class="container about-layout">
+        <div class="profile-card reveal">
+          <div class="profile-frame">
+            <img src="static/images/Adrian_Kuehnel.png" alt="Adrian Kühnel" loading="lazy">
+            <div class="profile-scanline" aria-hidden="true"></div>
+          </div>
+          <div class="profile-meta">
+            <h3>Adrian Kühnel</h3>
+            <p>IT Infrastructure / Cloud / Security</p>
+            <div class="profile-pills">
+              <span>Infrastruktur</span>
+              <span>Cloud</span>
+              <span>Security</span>
+              <span>Automatisierung</span>
+              <span>Support</span>
+            </div>
+          </div>
+          <div class="tech-orbit-cloud" aria-label="Technologie-Stack">
+            <span>Linux</span><span>Proxmox</span><span>Docker</span><span>Microsoft 365</span><span>Azure</span>
+            <span>pfSense</span><span>Nginx</span><span>GitLab</span><span>Python</span><span>Grafana</span>
+            <span>Zabbix</span><span>Windows Server</span><span>SharePoint</span><span>Exchange</span><span>Teams</span>
+          </div>
+        </div>
+
+        <div class="about-content reveal">
+          <div class="section-head">
+            <p class="eyebrow">HANDS-ON IT / INFRASTRUCTURE / CLOUD / SECURITY</p>
+            <h2>Technik verstehen. Systeme sauber bauen.</h2>
+            <p>
+              Ich baue IT so auf, dass sie im Alltag funktioniert, verständlich bleibt und später nicht zum Rätsel wird. Statt Insellösungen und unübersichtlichen Strukturen geht es um saubere Systeme, klare Rechte, stabile Dienste und nachvollziehbaren Betrieb.
+            </p>
+            <p>
+              Mein Fokus liegt auf Infrastruktur, Microsoft 365, Servern, Netzwerken, Automatisierung, Monitoring und modernen Betriebsplattformen – von der Planung bis zur laufenden Betreuung.
+            </p>
+          </div>
+
+          <div class="about-facts">
+            <article>
+              <i class="about-fact-icon fact-network" aria-hidden="true"></i>
+              <span>Systeme statt Chaos</span>
+              <strong>Strukturen, Rechte und Dienste nachvollziehbar planen.</strong>
+            </article>
+            <article>
+              <i class="about-fact-icon fact-activity" aria-hidden="true"></i>
+              <span>Betrieb im Blick</span>
+              <strong>Monitoring, Backups und Wartbarkeit von Anfang an mitdenken.</strong>
+            </article>
+            <article>
+              <i class="about-fact-icon fact-shield" aria-hidden="true"></i>
+              <span>Praxisnah umgesetzt</span>
+              <strong>Lösungen, die nicht nur gut aussehen, sondern im Alltag tragfähig sind.</strong>
+            </article>
+          </div>
+
+          <div class="stack-summary">
+            <p>Breiter Stack aus Infrastruktur, Cloud, Security und Automatisierung.</p>
+            <div class="stack-category-grid">
+              <article class="stack-infra"><i aria-hidden="true"></i><span>Infrastructure</span><p>Linux · Windows Server · Proxmox · Docker</p></article>
+              <article class="stack-cloud"><i aria-hidden="true"></i><span>Cloud & Collaboration</span><p>Microsoft 365 · Azure · Teams · SharePoint · Exchange</p></article>
+              <article class="stack-security"><i aria-hidden="true"></i><span>Network & Security</span><p>pfSense · Nginx · VPN · Firewall · MFA</p></article>
+              <article class="stack-ops"><i aria-hidden="true"></i><span>Operations</span><p>GitLab · Python · Grafana · Zabbix · Monitoring</p></article>
+            </div>
+          </div>
+
+          <p class="about-closing">Mein Anspruch: IT so aufzubauen, dass sie heute zuverlässig läuft – und morgen noch verständlich, sicher und erweiterbar bleibt.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="value-section" id="leistungen">
+      <div class="shape shape-a" aria-hidden="true"></div>
+      <div class="shape shape-b" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">360° IT / Infrastruktur / Cloud / Security</p>
+          <h2>IT-Leistungen mit System</h2>
+          <p>
+            Kühnel Systems verbindet Infrastruktur, Cloud, Sicherheit und Automatisierung zu einer IT, die verständlich bleibt und zuverlässig läuft.
+          </p>
+        </div>
+
+        <div class="service-grid" id="home-service-grid" aria-label="Leistungsübersicht"></div>
+      </div>
+    </section>
+
+    <section class="trust-section" id="vertrauen">
+      <div class="container trust-layout">
+        <div class="stats-panel reveal">
+          <article>
+            <strong>150+</strong>
+            <span>betreute Server, Dienste und Workloads</span>
+            <div class="stat-meta">
+              <small><i></i> Server</small>
+              <small><i></i> Dienste</small>
+              <small><i></i> Workloads</small>
+            </div>
+          </article>
+          <article>
+            <strong>Betrieb mit Struktur</strong>
+            <span>Dokumentiert, nachvollziehbar und wartbar statt zufällig gewachsen.</span>
+            <div class="stat-meta">
+              <small><i></i> Planung</small>
+              <small><i></i> Doku</small>
+              <small><i></i> Betrieb</small>
+            </div>
+          </article>
+        </div>
+
+        <div class="partner-panel reveal">
+          <p class="eyebrow">Zahlen, Vertrauen & Partner</p>
+          <h2>Technologien, die in echten Betriebsumgebungen tragen.</h2>
+          <div class="partner-grid" id="stack">
+            <span class="tech-m365">Microsoft 365</span>
+            <span class="tech-cloud">Azure</span>
+            <span class="tech-terminal">Linux</span>
+            <span class="tech-server">Proxmox</span>
+            <span class="tech-container">Docker</span>
+            <span class="tech-shield">pfSense</span>
+            <span class="tech-proxy">Nginx</span>
+            <span class="tech-git">GitLab</span>
+            <span class="tech-activity">Zabbix</span>
+            <span class="tech-dashboard">Grafana</span>
+          </div>
+          <p class="partner-note">Ich setze nicht auf Tools, weil sie modern klingen – sondern weil sie in echten Umgebungen stabil, wartbar und nachvollziehbar funktionieren.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="why-section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Warum Kühnel Systems?</p>
+          <h2>Klare IT. Saubere Umsetzung.</h2>
+          <p>Ich baue IT nicht nur so, dass sie funktioniert – sondern so, dass sie verständlich, sicher und langfristig wartbar bleibt.</p>
+        </div>
+        <div class="why-grid">
+          <article class="why-card reveal">
+            <span class="why-icon why-message" aria-hidden="true"></span>
+            <h3>Klare Kommunikation</h3>
+            <p>Risiken, Aufwand und nächste Schritte werden verständlich erklärt – ohne unnötiges Fachchinesisch.</p>
+            <div class="why-tags"><span>Transparenz</span><span>Planung</span><span>Verständlichkeit</span></div>
+          </article>
+          <article class="why-card reveal">
+            <span class="why-icon why-shield" aria-hidden="true"></span>
+            <h3>Sicherheit von Anfang an</h3>
+            <p>Backups, Rechte, Firewall, Monitoring und Recovery werden von Beginn an mitgedacht.</p>
+            <div class="why-tags"><span>MFA</span><span>Backup</span><span>Firewall</span></div>
+          </article>
+          <article class="why-card reveal">
+            <span class="why-icon why-cog" aria-hidden="true"></span>
+            <h3>Wartbare Systeme</h3>
+            <p>Strukturen werden so aufgebaut, dass sie später nachvollziehbar erweitert und betreut werden können.</p>
+            <div class="why-tags"><span>Dokumentation</span><span>Standards</span><span>Betrieb</span></div>
+          </article>
+          <article class="why-card reveal">
+            <span class="why-icon why-network" aria-hidden="true"></span>
+            <h3>Skalierbare IT</h3>
+            <p>Die Umgebung wächst mit Anforderungen, Team und Projekten – ohne jedes Mal neu gedacht werden zu müssen.</p>
+            <div class="why-tags"><span>Cloud</span><span>Virtualisierung</span><span>Netzwerk</span></div>
+          </article>
+        </div>
+        <div class="process-panel reveal">
+          <p class="eyebrow">So läuft Zusammenarbeit ab</p>
+          <div class="process-flow" aria-label="Zusammenarbeit Ablauf">
+            <span class="process-node process-search"><i></i><strong>Analyse</strong></span>
+            <span class="process-line"></span>
+            <span class="process-node process-network"><i></i><strong>Struktur</strong></span>
+            <span class="process-line"></span>
+            <span class="process-node process-wrench"><i></i><strong>Umsetzung</strong></span>
+            <span class="process-line"></span>
+            <span class="process-node process-file"><i></i><strong>Dokumentation</strong></span>
+            <span class="process-line"></span>
+            <span class="process-node process-activity"><i></i><strong>Betrieb</strong></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section" id="projekt">
+      <div class="container project-card reveal">
+        <div class="project-copy">
+          <p class="eyebrow dark">Projekt starten</p>
+          <h2>IT-Projekt im Kopf?</h2>
+          <p>Ob Microsoft 365, Netzwerk, Server oder Security – Kühnel Systems hilft dabei, aus technischen Baustellen eine klare, sichere und wartbare IT-Struktur zu machen.</p>
+          <div class="project-actions">
+            <a class="button button-primary" href="mailto:kontakt@kuehnel-systems.de">Projekt anfragen</a>
+            <a class="button button-secondary" href="#leistungen">Leistungen ansehen</a>
+          </div>
+        </div>
+        <form class="contact-form-card" id="contact-form" novalidate>
+          <div class="contact-form-head">
+            <span class="form-kicker">Direkte Anfrage</span>
+            <h3>Projekt kurz beschreiben</h3>
+            <p>Schicken Sie ein paar Eckdaten – ich melde mich mit einer ersten Einschätzung zurück.</p>
+          </div>
+
+          <div class="form-grid">
+            <label class="form-field">
+              <span>Name</span>
+              <input type="text" name="name" autocomplete="name" placeholder="Ihr Name" required>
+            </label>
+
+            <label class="form-field">
+              <span>E-Mail</span>
+              <input type="email" name="email" autocomplete="email" placeholder="name@firma.de" required>
+            </label>
+          </div>
+
+          <label class="form-field">
+            <span>Thema / Leistung</span>
+            <select name="topic">
+              <option>Microsoft 365</option>
+              <option>IT-Infrastruktur</option>
+              <option>Netzwerk & Firewall</option>
+              <option>Server & Virtualisierung</option>
+              <option>Backup & Sicherheit</option>
+              <option>Monitoring</option>
+              <option>Dokumentenmanagement</option>
+              <option>Web, Hosting & Anwendungen</option>
+              <option>Managed IT & Betreuung</option>
+              <option>Sonstiges</option>
+            </select>
+          </label>
+
+          <label class="form-field">
+            <span>Nachricht</span>
+            <textarea name="message" rows="4" placeholder="Worum geht es? Bestehende IT, Problem, Ziel oder Projektidee kurz beschreiben …" required></textarea>
+          </label>
+
+          <label class="form-field form-honeypot" aria-hidden="true">
+            <span>Website</span>
+            <input type="text" name="website" tabindex="-1" autocomplete="off">
+          </label>
+
+          <button class="button button-primary contact-submit" type="submit">Anfrage senden</button>
+          <p class="form-trust">Keine automatische Massenmail. Ihre Anfrage wird persönlich geprüft.</p>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+
+          <div class="form-pills" aria-label="Rahmenbedingungen">
+            <span>Remote möglich</span>
+            <span>Deutschlandweit</span>
+            <span>Erstgespräch</span>
+            <span>Strukturierte Umsetzung</span>
+          </div>
+
+          <p class="form-privacy">
+            Mit dem Absenden erklären Sie sich einverstanden, dass Ihre Angaben zur Bearbeitung der Anfrage verwendet werden. Hinweise zum Umgang mit Daten finden Sie in der <a href="#footer">Datenschutzerklärung</a>.
+          </p>
+        </form>
+        <div class="project-flow" aria-label="Projektablauf">
+          <span class="project-node node-request"><i></i><strong>Anfrage</strong></span>
+          <span class="project-line"></span>
+          <span class="project-node node-search"><i></i><strong>Analyse</strong></span>
+          <span class="project-line"></span>
+          <span class="project-node node-wrench"><i></i><strong>Umsetzung</strong></span>
+          <span class="project-line"></span>
+          <span class="project-node node-file"><i></i><strong>Dokumentation</strong></span>
+          <span class="project-line"></span>
+          <span class="project-node node-activity"><i></i><strong>Betrieb</strong></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top" aria-label="Kühnel Systems Startseite">
+          <span class="brand-mark">
+            <img src="static/images/ks_logo_orange.png" alt="" width="44" height="38">
+          </span>
+          <span class="brand-copy">
+            <strong>Kühnel Systems</strong>
+            <small>Modern IT Services</small>
+          </span>
+        </a>
+        <p>
+          Kühnel Systems unterstützt Unternehmen, Vereine und Selbstständige bei stabiler Infrastruktur, Cloud, Security, Automatisierung und Support.
+        </p>
+      </div>
+
+      <nav class="footer-links" aria-label="Footer Navigation">
+        <strong>Company</strong>
+        <a href="#ueber-uns">Über uns</a>
+        <a href="#leistungen">Leistungen</a>
+        <a href="#projekt">Projekt anfragen</a>
+        <a href="#footer">Kontakt</a>
+        <a href="#footer">Impressum</a>
+        <a href="#footer">Datenschutz</a>
+      </nav>
+
+      <div class="footer-contact">
+        <strong>Kontakt</strong>
+        <span>Kühnel Systems</span>
+        <a href="mailto:kontakt@kuehnel-systems.de">kontakt@kuehnel-systems.de</a>
+        <span>Deutschland / Remote Services</span>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>(c) 2026 Kühnel Systems. Alle Rechte vorbehalten.</span>
+      <span>Infrastructure. Cloud. Security.</span>
+    </div>
+  </footer>
+
+  <script src="static/js/script.js"></script>
+  <script src="static/js/home-services.js"></script>
+</body>
+</html>
