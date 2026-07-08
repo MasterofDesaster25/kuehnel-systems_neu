@@ -56,6 +56,7 @@ Lege auf dem Server eine lokale `.env` neben der `docker-compose.yml` an:
 ```env
 SMTP_HOST=smtp.ionos.de
 SMTP_PORT=587
+SMTP_TIMEOUT=10
 SMTP_USER=kontakt@kuehnel-systems.de
 SMTP_PASSWORD=DEIN_IONOS_MAILBOX_PASSWORT
 SMTP_USE_TLS=true

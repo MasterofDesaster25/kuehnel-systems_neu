@@ -2,6 +2,7 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 import json
 import smtplib
 import ssl
+import sys
 from email.message import EmailMessage
 from pathlib import Path
 from urllib.parse import unquote, urlparse
@@ -15,6 +16,7 @@ from app.config import (
     SMTP_HOST,
     SMTP_PASSWORD,
     SMTP_PORT,
+    SMTP_TIMEOUT,
     SMTP_USE_TLS,
     SMTP_USER,
 )
@@ -116,7 +118,13 @@ class SiteHandler(SimpleHTTPRequestHandler):
 
         try:
             self._send_mail(mail)
-        except (OSError, smtplib.SMTPException):
+        except (OSError, smtplib.SMTPException) as error:
+            print(
+                f"Kontaktformular: SMTP-Versand fehlgeschlagen "
+                f"({type(error).__name__}: {error})",
+                file=sys.stderr,
+                flush=True,
+            )
             self._send_json(502, {"message": "Die Anfrage konnte nicht versendet werden."})
             return
 
@@ -125,7 +133,13 @@ class SiteHandler(SimpleHTTPRequestHandler):
     def _send_mail(self, mail: EmailMessage) -> None:
         context = ssl.create_default_context()
 
-        with smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=15) as smtp:
+        print(
+            f"Kontaktformular: SMTP-Verbindung zu {SMTP_HOST}:{SMTP_PORT} "
+            f"mit Timeout {SMTP_TIMEOUT}s",
+            flush=True,
+        )
+
+        with smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=SMTP_TIMEOUT) as smtp:
             if SMTP_USE_TLS:
                 smtp.starttls(context=context)
 
@@ -135,7 +149,7 @@ class SiteHandler(SimpleHTTPRequestHandler):
             smtp.send_message(mail)
 
     def _is_mail_configured(self) -> bool:
-        return bool(SMTP_HOST and MAIL_FROM and MAIL_TO)
+        return bool(SMTP_HOST and SMTP_USER and SMTP_PASSWORD and MAIL_FROM and MAIL_TO)
 
     def _send_json(self, status_code: int, payload: dict[str, str]) -> None:
         content = json.dumps(payload).encode("utf-8")
