@@ -1,4 +1,5 @@
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+from concurrent.futures import ThreadPoolExecutor, TimeoutError
 import json
 import smtplib
 import ssl
@@ -21,6 +22,9 @@ from app.config import (
     SMTP_USER,
 )
 from app.routes import get_route, is_static_path
+
+
+SMTP_EXECUTOR = ThreadPoolExecutor(max_workers=2)
 
 
 class SiteHandler(SimpleHTTPRequestHandler):
@@ -117,7 +121,16 @@ class SiteHandler(SimpleHTTPRequestHandler):
         )
 
         try:
-            self._send_mail(mail)
+            future = SMTP_EXECUTOR.submit(self._send_mail, mail)
+            future.result(timeout=SMTP_TIMEOUT + 2)
+        except TimeoutError:
+            print(
+                f"Kontaktformular: SMTP-Versand nach {SMTP_TIMEOUT + 2}s abgebrochen",
+                file=sys.stderr,
+                flush=True,
+            )
+            self._send_json(502, {"message": "Der Mailserver hat nicht rechtzeitig geantwortet."})
+            return
         except (OSError, smtplib.SMTPException) as error:
             print(
                 f"Kontaktformular: SMTP-Versand fehlgeschlagen "
