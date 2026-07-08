@@ -328,7 +328,7 @@ const initContactForm = (form, statusElement) => {
     });
   });
 
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
     clearInvalidState();
     setStatus("");
@@ -368,29 +368,27 @@ const initContactForm = (form, statusElement) => {
 
     setLoading(true);
 
-    // TODO: Wenn ein Backend vorhanden ist, hier POST /api/contact anbinden.
-    const subject = encodeURIComponent(`Projektanfrage: ${topic}`);
-    const body = encodeURIComponent(
-      [
-        `Name: ${name}`,
-        `E-Mail: ${email}`,
-        `Thema: ${topic}`,
-        "",
-        "Nachricht:",
-        message,
-      ].join("\n")
-    );
-
     try {
-      window.location.href = `mailto:kontakt@kuehnel-systems.de?subject=${subject}&body=${body}`;
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, topic, message, website }),
+      });
 
-      window.setTimeout(() => {
-        setLoading(false);
-        setStatus(
-          "Ihr Mailprogramm wurde geöffnet. Falls das nicht funktioniert, schreiben Sie direkt an kontakt@kuehnel-systems.de.",
-          "is-success"
-        );
-      }, 700);
+      const result = await response.json().catch(() => ({}));
+      const responseMessage = result.message || "Die Anfrage konnte nicht gesendet werden.";
+
+      setLoading(false);
+
+      if (!response.ok) {
+        setStatus(responseMessage, "is-error");
+        return;
+      }
+
+      form.reset();
+      setStatus(responseMessage, "is-success");
     } catch (error) {
       setLoading(false);
       setStatus(
